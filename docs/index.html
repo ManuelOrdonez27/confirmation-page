@@ -126,7 +126,7 @@ input[type=number] {
   <h3>Ingrese los siguientes datos para confirmar su asistencia.</h3>
   <form id="guest-form">
     <p for="name">Nombre:</p>
-    <input type="text" id="name" name="name" placeholder="Ingrese su nombre" required>
+    <input type="text" id="name" name="name" placeholder="Ingrese su nombre" pattern="[A-Za-z\s]+" required>
     
     <p for="guests-number">Número de personas que asistirán:</p>
     <input type="number" id="guests-number" name="guests-number" placeholder="Ingrese núm. de personas" min="1" required>
@@ -149,13 +149,20 @@ input[type=number] {
     const submitButton = e.target;
     console.log(submitButton.textContent);
 
+    
+
     if(localStorage.getItem('formSubmitted') === 'true') {
     
-    alert("Ya has confirmado tu asistencia, gracias");
+    alert("¡Ya has confirmado tu asistencia!, gracias :D");
+      return;
+    }
+    const namePattern = /^[A-Za-z\s]+$/;
+    if(!namePattern.test(guestName)){
+      alert("Ingrese un nombre válido o_O");
       return;
     }
     if(isNaN(guestNumber) || guestNumber < 1 || guestNumber > 5) {
-    alert("Por favor, ingrese un número válido de personas");
+    alert("Por favor, ingrese un número válido de personas o_O");
       return
     
     }
