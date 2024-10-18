@@ -128,7 +128,7 @@ input[type=number] {
     <p for="guests-number">Número de personas que asistirán:</p>
     <input type="number" id="guests-number" name="guests-number" placeholder="Ingrese núm. de personas" min="1" required>
     <br><br>
-    <button class="button" type="submit">Enviar</button>
+    <button class="button" type="submit" value "Enviar"></button>
   </form>
 
   <script>
@@ -141,11 +141,12 @@ input[type=number] {
 
     if(isNaN(guestNumber) || guestNumber < 1) {
     alert("Por favor, ingrese un número válido de personas");
+      return
     
     }
 
     submitButton.disabled = true;
-    submitButton.textContent = "Enviando..."
+    submitButton.value = "Enviando..."
     // Send the guest name to the Google Apps Script URL
     if (guestName && guestNumber) {
       fetch(`https://script.google.com/macros/s/AKfycbx8HXuBg_-SPcFg7qOzRpOma-HjlQQvf58Wk2Ad3p0BO-cdPXcKa1UdjnesmpE_iUTS/exec?name=${encodeURIComponent(guestName)}&guests=${encodeURIComponent(guestNumber)}`) //+ encodeURIComponent(guestName))
@@ -157,7 +158,7 @@ input[type=number] {
         })
         .catch(error => {
           submitButton.disabled =  false;
-          submitButton.textContent = "Enviar"
+          submitButton.value = "Enviar"
           
           console.error('Error:', error);
         });
