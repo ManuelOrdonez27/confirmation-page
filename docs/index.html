@@ -128,16 +128,17 @@ input[type=number] {
     <p for="guests-number">Número de personas que asistirán:</p>
     <input type="number" id="guests-number" name="guests-number" placeholder="Ingrese núm. de personas" min="1" required>
     <br><br>
-    <button id= "submitButton" class="button" type="submit">Enviar</button>
+    <button id= "submitButton" class="button" type="submit" onclick ="handleSubmit(event)">Enviar</button>
   </form>
 
   <script>
-  document.getElementById('guest-form').addEventListener('submit', function(e) {
+    function handleSubmit(e) {
+
     e.preventDefault(); // Prevent the form from submitting traditionally
 
     const guestName = document.getElementById('name').value;
     const guestNumber = document.getElementById('guests-number').value;
-    const submitButton = document.getElementById('submitButton').value;
+    const submitButton = e.target;
     console.log(submitButton.textContent);
 
     if(isNaN(guestNumber) || guestNumber < 1) {
