@@ -4,12 +4,80 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Form Page</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Meow+Script&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      background-color: #000000;
+      font-family: 'Roboto', sans-serif;
+      text-align: center;
+      padding-top: 50px;
+      padding-right: 20px;
+      padding-bottom: 50px;
+      padding-left: 20px;
+    }
+   
+    div {  
+      border: 3px solid #8a9597;  
+      outline: 3px solid #8a9597;  
+      border-radius: 12px; 
+      outline-offset: 0.5em; 
+      padding: 5px;
+    }    
+    
+    h1 {
+      color: #fcf5f5;
+      font-family: "Meow Script", cursive;
+      font-weight: 400;
+      font-style: normal; 
+      font-size: 4.5em;
+     
+    }
+
+   h3 {
+      color: #fcf5f5;
+      font-family: "Meow Script", cursive;
+      font-weight: 400;
+      font-style: normal; 
+      font-size: 2.5em;
+     
+    }
+
+   p {
+      color: #fcf5f5;
+    }
+
+    img {
+      margin-top: 20px;
+    }
+
+   .guest-name {
+      color: #fcf5f5;
+      font-size: 1.5em;
+      margin-top: 10px;
+   }
+
+  .center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+  }
+    .qr-code {
+      margin-top: 20px;
+    }
+  </style>
+
+  
 </head>
 <body>
-  <h1>Welcome to the Party</h1>
+  <h1>Ingresa los siguientes datos para confirmar su asistencia</h1>
   <form id="guest-form">
-    <label for="name">Enter your name:</label>
-    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+    <label for="name">Nombre:</label>
+    <input type="text" id="name" name="name" placeholder="Ingrese su nombre" required>
+    <label for="guests-number">Numero de invitados:</label>
+    <input type="text" id="guests-number" name="guests-number" placeholder="Ingrese numero de invitados" required>
     <button type="submit">Submit</button>
   </form>
 
