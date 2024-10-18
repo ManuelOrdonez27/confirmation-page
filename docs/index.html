@@ -3,90 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>QR Code Display</title>
-  <link href="https://fonts.googleapis.com/css2?family=Meow+Script&display=swap" rel="stylesheet">
-  <style>
-    body {
-      background-color: #000000;
-      font-family: 'Roboto', sans-serif;
-      text-align: center;
-      padding: 50px 20px;
-    }
-    div {
-      border: 3px solid #8a9597;  
-      outline: 3px solid #8a9597;  
-      border-radius: 12px; 
-      outline-offset: 0.5em; 
-      padding: 5px;
-    }
-    h1, h3 {
-      color: #fcf5f5;
-      font-family: "Meow Script", cursive;
-      font-weight: 400;
-    }
-    h1 {
-      font-size: 4.5em;
-    }
-    h3 {
-      font-size: 2.5em;
-    }
-    p, .guest-name {
-      color: #fcf5f5;
-    }
-    .guest-name {
-      font-size: 1.5em;
-      margin-top: 10px;
-    }
-    img {
-      margin-top: 20px;
-    }
-    .hidden {
-      display: none;
-    }
-  </style>
+  <title>Form Page</title>
 </head>
 <body>
-  <div>
-    <h1>Hannah</h1>
-    <h3>Mis XV años</h3>
+  <h1>Welcome to the Party</h1>
+  <form id="guest-form">
+    <label for="name">Enter your name:</label>
+    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+    <button type="submit">Submit</button>
+  </form>
 
-    <!-- Form for collecting guest name -->
-    <form id="guest-form">
-      <input type="text" id="name" name="name" placeholder="Enter your name" required>
-      <button type="submit">Submit</button>
-    </form>
+  <script>
+    document.getElementById('guest-form').addEventListener('submit', function(e) {
+      e.preventDefault();  // Prevent the form from submitting traditionally
 
-    <h2 class="guest-name hidden" id="guest-name"></h2>
-    <img src="assets/divider1.PNG" alt="Logo" width="300">
+      const guestName = document.getElementById('name').value;
 
-    <!-- QR Code -->
-    <p id="thank-you-message" class="hidden">¡Gracias por confirmar tu asistencia! Usa el siguiente código el día del evento para conocer tu mesa:</p>
-    <img id="qr-code" class="hidden" alt="QR Code" width="250" height="250">
-
-    <!-- JavaScript to handle form submission and generate QR code -->
-    <script>
-      document.getElementById('guest-form').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the form from submitting the traditional way
-
-        const guestName = document.getElementById('name').value;
-        if (guestName) {
-          // Update the greeting with the guest's name
-          document.getElementById('guest-name').innerText = '¡Hola ' + guestName + '!';
-          document.getElementById('guest-name').classList.remove('hidden');
-
-          // Generate the QR code
-          const qrCodeUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=' + encodeURIComponent(guestName);
-          document.getElementById('qr-code').src = qrCodeUrl;
-          document.getElementById('qr-code').classList.remove('hidden');
-          
-          // Show thank you message
-          document.getElementById('thank-you-message').classList.remove('hidden');
-
-          // Optionally clear the form
-          document.getElementById('guest-form').reset();
-        }
-      });
-    </script>
-  </div>
+      // Redirect to the new page and pass the guest's name as a URL parameter
+      if (guestName) {
+        window.location.href = 'thanks.html?name=' + encodeURIComponent(guestName);
+      } else {
+        alert('Please enter a valid name.');
+      }
+    });
+  </script>
 </body>
 </html>
