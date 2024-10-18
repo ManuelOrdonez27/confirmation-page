@@ -134,7 +134,7 @@
 
     // Send the guest name to the Google Apps Script URL
     if (guestName && guestNumber) {
-      fetch(`https://script.google.com/macros/s/AKfycbyhnpUeyhy7Knok76YmKnArdcU5WaljCoBgaJZtW4OsfFBW8nwD1U5h6sr3o6TUoi5G/exec?name=${encodeURIComponent(guestName)}&guests=${encodeURIComponent(guestNumber)}`) //+ encodeURIComponent(guestName))
+      fetch(`https://script.google.com/macros/s/AKfycbx8HXuBg_-SPcFg7qOzRpOma-HjlQQvf58Wk2Ad3p0BO-cdPXcKa1UdjnesmpE_iUTS/exec?name=${encodeURIComponent(guestName)}&guests=${encodeURIComponent(guestNumber)}`) //+ encodeURIComponent(guestName))
         .then(response => response.text())
         .then(data => {
           console.log(data); // Log response from the Apps Script
