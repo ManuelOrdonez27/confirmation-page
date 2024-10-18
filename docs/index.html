@@ -129,7 +129,7 @@ input[type=number] {
     <input type="text" id="name" name="name" placeholder="Ingrese su nombre" required>
     
     <p for="guests-number">Número de personas que asistirán:</p>
-    <input type="number" id="guests-number" name="guests-number" placeholder="Ingrese núm. de personas" min="1" required>
+    <input type="number" id="guests-number" name="guests-number" placeholder="Ingrese núm. de personas" min="1" max="5" required>
     <br><br>
     <button id= "submitButton" class="button" type="submit" onclick ="handleSubmit(event)">Enviar</button>
     <br><br>
@@ -149,7 +149,7 @@ input[type=number] {
     const submitButton = e.target;
     console.log(submitButton.textContent);
 
-    if(isNaN(guestNumber) || guestNumber < 1) {
+    if(isNaN(guestNumber) || guestNumber < 1 || guestNumber > 5) {
     alert("Por favor, ingrese un número válido de personas");
       return
     
