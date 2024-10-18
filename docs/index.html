@@ -120,7 +120,7 @@
     <input type="text" id="name" name="name" placeholder="Ingrese su nombre" required>
     
     <p for="guests-number">Número de personas que asistirán:</p>
-    <input type="text" id="guests-number" name="guests-number" placeholder="Ingrese núm. de personas" required>
+    <input type="number" id="guests-number" name="guests-number" placeholder="Ingrese núm. de personas" min="1" required>
     <br><br>
     <button class="button" type="submit">Enviar</button>
   </form>
@@ -132,6 +132,10 @@
     const guestName = document.getElementById('name').value;
     const guestNumber = document.getElementById('guests-number').value;
 
+    if(isNan(guestNumber) || guestNumber < 1) {
+    alert("Por favor, ingrese un número válido de personas");
+    
+    }
     // Send the guest name to the Google Apps Script URL
     if (guestName && guestNumber) {
       fetch(`https://script.google.com/macros/s/AKfycbx8HXuBg_-SPcFg7qOzRpOma-HjlQQvf58Wk2Ad3p0BO-cdPXcKa1UdjnesmpE_iUTS/exec?name=${encodeURIComponent(guestName)}&guests=${encodeURIComponent(guestNumber)}`) //+ encodeURIComponent(guestName))
