@@ -128,7 +128,7 @@ input[type=number] {
     <p for="guests-number">Número de personas que asistirán:</p>
     <input type="number" id="guests-number" name="guests-number" placeholder="Ingrese núm. de personas" min="1" required>
     <br><br>
-    <button class="button" type="submit">Enviar</button>
+    <button id= "submitButton" class="button" type="submit">Enviar</button>
   </form>
 
   <script>
@@ -137,7 +137,8 @@ input[type=number] {
 
     const guestName = document.getElementById('name').value;
     const guestNumber = document.getElementById('guests-number').value;
-    const submitButton = document.querySelector('button[type="submit"]').value;
+    const submitButton = document.getElementById('submitButton').value;
+    console.log(submitButton.textContent);
 
     if(isNaN(guestNumber) || guestNumber < 1) {
     alert("Por favor, ingrese un número válido de personas");
@@ -150,7 +151,7 @@ input[type=number] {
     if (guestName && guestNumber) {
       console.log("Disabling button");
       submitButton.disabled = true;
-      submitButton.innerText = "Enviando..."
+      submitButton.textContent = "Enviando..."
       fetch(`https://script.google.com/macros/s/AKfycbx8HXuBg_-SPcFg7qOzRpOma-HjlQQvf58Wk2Ad3p0BO-cdPXcKa1UdjnesmpE_iUTS/exec?name=${encodeURIComponent(guestName)}&guests=${encodeURIComponent(guestNumber)}`) //+ encodeURIComponent(guestName))
         .then(response => response.text())
         .then(data => {
@@ -160,7 +161,7 @@ input[type=number] {
         })
         .catch(error => {
           submitButton.disabled =  false;
-          submitButton.innerText = "Enviar"
+          submitButton.textContent = "Enviar"
           
           console.error('Error:', error);
         });
