@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Table Assignment</title>
+  
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 50px;
+    }
+    
+    .result {
+      margin-top: 20px;
+      font-size: 1.5em;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to the Table Assignment Page</h1>
+  <p>Scan your QR code to see your assigned table.</p>
+  
+  <input type="text" id="guest-name" placeholder="Enter your name" />
+  <button id="submit-btn">Submit</button>
+  
+  <div class="result" id="result"></div>
+
+  <script>
+    document.getElementById('submit-btn').addEventListener('click', function() {
+      const guestName = document.getElementById('guest-name').value;
+      if (!guestName) {
+        alert('Please enter your name!');
+        return;
+      }
+
+      fetch('https://sheets.googleapis.com/v4/spreadsheets/YOUR_SHEET_ID/values/Sheet1!A:B?key=YOUR_API_KEY')
+        .then(response => response.json())
+        .then(data => {
+          const rows = data.values;
+          let tableAssignment = 'Table not found';
+          
+          // Loop through rows to find the guest name
+          for (let i = 1; i < rows.length; i++) { // Start at 1 to skip the header
+            if (rows[i][0].toLowerCase() === guestName.toLowerCase()) {
+              tableAssignment = 'Your assigned table is: ' + rows[i][1];
+              break;
+            }
+          }
+          
+          // Display result
+          document.getElementById('result').innerText = tableAssignment;
+        })
+        .catch(error => {
+          console.error('Error retrieving data:', error);
+        });
+    });
+  </script>
+</body>
+</html>
