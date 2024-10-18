@@ -130,10 +130,11 @@
     e.preventDefault(); // Prevent the form from submitting traditionally
 
     const guestName = document.getElementById('name').value;
+    const guestNumber = document.getElementById('guests-number').value;
 
     // Send the guest name to the Google Apps Script URL
-    if (guestName) {
-      fetch('https://script.google.com/macros/s/AKfycbyhnpUeyhy7Knok76YmKnArdcU5WaljCoBgaJZtW4OsfFBW8nwD1U5h6sr3o6TUoi5G/exec?name=' + encodeURIComponent(guestName))
+    if (guestName && guestNumber) {
+      fetch(`https://script.google.com/macros/s/AKfycbyhnpUeyhy7Knok76YmKnArdcU5WaljCoBgaJZtW4OsfFBW8nwD1U5h6sr3o6TUoi5G/exec?name=${encodeURIComponent(guestName)}&guests=${encodeURIComponent(guestNumber)}` //+ encodeURIComponent(guestName))
         .then(response => response.text())
         .then(data => {
           console.log(data); // Log response from the Apps Script
@@ -144,7 +145,7 @@
           console.error('Error:', error);
         });
     } else {
-      alert('Please enter a valid name.');
+      alert('Por favor ingrese su nombre y el numero de personas.');
     }
   });
 </script>
