@@ -137,11 +137,15 @@ input[type=number] {
 
     const guestName = document.getElementById('name').value;
     const guestNumber = document.getElementById('guests-number').value;
+    const submitButton = document.querySelector('button[type="submit"]').value;
 
     if(isNaN(guestNumber) || guestNumber < 1) {
     alert("Por favor, ingrese un número válido de personas");
     
     }
+
+    submitButton.disabled = true;
+    submitButton.textContent = "Enviando..."
     // Send the guest name to the Google Apps Script URL
     if (guestName && guestNumber) {
       fetch(`https://script.google.com/macros/s/AKfycbx8HXuBg_-SPcFg7qOzRpOma-HjlQQvf58Wk2Ad3p0BO-cdPXcKa1UdjnesmpE_iUTS/exec?name=${encodeURIComponent(guestName)}&guests=${encodeURIComponent(guestNumber)}`) //+ encodeURIComponent(guestName))
@@ -152,10 +156,14 @@ input[type=number] {
           window.location.href = 'thanks.html?name=' + encodeURIComponent(guestName);
         })
         .catch(error => {
+          submitButton.disabled =  false;
+          submitButton.textContent = "Enviar"
+          
           console.error('Error:', error);
         });
     } else {
       alert('Por favor ingrese su nombre y el numero de personas.');
+      submitButton.disabled =  false;
     }
   });
 </script>
