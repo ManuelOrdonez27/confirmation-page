@@ -82,7 +82,13 @@
     padding-bottom: 10px;
     color: #ffffff;
     }
-
+input[type=number] {
+  font-size: 1.5em;
+  border: 2px solid #ffffff;
+  background-color:#cc8ca3;
+  font-family: "Afacad Flux", sans-serif;
+  color: white;
+  }
   input[type=text] {
   font-size: 1.5em;
   border: 2px solid #ffffff;
@@ -132,7 +138,7 @@
     const guestName = document.getElementById('name').value;
     const guestNumber = document.getElementById('guests-number').value;
 
-    if(isNan(guestNumber) || guestNumber < 1) {
+    if(isNaN(guestNumber) || guestNumber < 1) {
     alert("Por favor, ingrese un número válido de personas");
     
     }
