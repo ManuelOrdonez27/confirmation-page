@@ -14,18 +14,28 @@
   </form>
 
   <script>
-    document.getElementById('guest-form').addEventListener('submit', function(e) {
-      e.preventDefault();  // Prevent the form from submitting traditionally
+  document.getElementById('guest-form').addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevent the form from submitting traditionally
 
-      const guestName = document.getElementById('name').value;
+    const guestName = document.getElementById('name').value;
 
-      // Redirect to the new page and pass the guest's name as a URL parameter
-      if (guestName) {
-        window.location.href = 'thanks.html?name=' + encodeURIComponent(guestName);
-      } else {
-        alert('Please enter a valid name.');
-      }
-    });
-  </script>
+    // Send the guest name to the Google Apps Script URL
+    if (guestName) {
+      fetch('https://script.google.com/macros/s/AKfycbyhnpUeyhy7Knok76YmKnArdcU5WaljCoBgaJZtW4OsfFBW8nwD1U5h6sr3o6TUoi5G/exec?name=' + encodeURIComponent(guestName))
+        .then(response => response.text())
+        .then(data => {
+          console.log(data); // Log response from the Apps Script
+          // Redirect to the thank you page after successful submission
+          window.location.href = 'thanks.html?name=' + encodeURIComponent(guestName);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    } else {
+      alert('Please enter a valid name.');
+    }
+  });
+</script>
+
 </body>
 </html>
