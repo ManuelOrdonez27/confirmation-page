@@ -149,6 +149,11 @@ input[type=number] {
     const submitButton = e.target;
     console.log(submitButton.textContent);
 
+    if(localStorage.getItem('formSubmitted') === 'true') {
+    
+    alert("Ya has confirmado tu asistencia, gracias");
+      return;
+    }
     if(isNaN(guestNumber) || guestNumber < 1 || guestNumber > 5) {
     alert("Por favor, ingrese un número válido de personas");
       return
