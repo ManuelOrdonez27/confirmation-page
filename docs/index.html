@@ -126,7 +126,7 @@ input[type=number] {
   <h3>Ingrese los siguientes datos para confirmar su asistencia.</h3>
   <form id="guest-form">
     <p for="name">Nombre:</p>
-    <input type="text" id="name" name="name" placeholder="Ingrese su nombre" pattern="[A-Za-z\s]+" required>
+    <input type="text" id="name" name="name" placeholder="Ingrese su nombre" pattern="[a-zA-Z\u00C0-\u017F]+,\s[a-zA-Z\u00C0-\u017F]+" required>
     
     <p for="guests-number">Número de personas que asistirán:</p>
     <input type="number" id="guests-number" name="guests-number" placeholder="Ingrese núm. de personas" min="1" required>
@@ -156,11 +156,11 @@ input[type=number] {
     alert("¡Ya has confirmado tu asistencia!, gracias :D");
       return;
     }
-    const namePattern = /^[A-Za-z\s]+$/;
-    if(!namePattern.test(guestName)){
+    const namePattern = /^[a-zA-Z\u00C0-\u017F]+,\s[a-zA-Z\u00C0-\u017F]+$/;
+    /*if(!namePattern.test(guestName)){
       alert("Ingrese un nombre válido o_O");
       return;
-    }
+    }*/
     if(isNaN(guestNumber) || guestNumber < 1 || guestNumber > 5) {
     alert("Por favor, ingrese un número válido de personas o_O");
       return
@@ -178,7 +178,7 @@ input[type=number] {
         .then(response => response.text())
         .then(data => {
           console.log(data); // Log response from the Apps Script
-          localStorage.setItem('formSubmitted', 'true');
+          //localStorage.setItem('formSubmitted', 'true');
           // Redirect to the thank you page after successful submission
           window.location.href = 'thanks.html?name=' + encodeURIComponent(guestName);
         })
