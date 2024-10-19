@@ -126,7 +126,7 @@ input[type=number] {
   <h3>Ingrese los siguientes datos para confirmar su asistencia.</h3>
   <form id="guest-form">
     <p for="name">Nombre:</p>
-    <input type="text" id="name" name="name" placeholder="Ingrese su nombre" pattern="[a-zA-Z\u00C0-\u017F]+,\s[a-zA-Z\u00C0-\u017F]+" required>
+    <input type="text" id="name" name="name" placeholder="Ingrese su nombre" pattern="[A-Za-zÀ-ÖØ-öø-ÿ\s]+" required>
     
     <p for="guests-number">Número de personas que asistirán:</p>
     <input type="number" id="guests-number" name="guests-number" placeholder="Ingrese núm. de personas" min="1" required>
@@ -156,7 +156,7 @@ input[type=number] {
     alert("¡Ya has confirmado tu asistencia!, gracias :D");
       return;
     }*/
-    const namePattern = /^[a-zA-Z\u00C0-\u017F]+,\s[a-zA-Z\u00C0-\u017F]+$/;
+    const namePattern = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/;
     if(!namePattern.test(guestName)){
       alert("Ingrese un nombre válido o_O");
       return;
