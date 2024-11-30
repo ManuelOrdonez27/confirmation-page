@@ -129,9 +129,9 @@ input[type=number] {
   <form id="guest-form">
     <p for="name">Nombre:</p>
     <input type="text" id="name" name="name" placeholder="Ingrese su nombre" pattern="[A-Za-zÀ-ÖØ-öø-ÿ\s]+" required>
-    
+    <!--
     <p for="guests-number">Número de personas que asistirán:</p>
-    <input type="number" id="guests-number" name="guests-number" placeholder="Ingrese núm. de personas" min="1" required>
+    <input type="number" id="guests-number" name="guests-number" placeholder="Ingrese núm. de personas" min="1" required>-->
     <br><br>
     <button id= "submitButton" class="button" type="submit" onclick ="handleSubmit(event)">Enviar</button>
     <br><br>
@@ -147,7 +147,6 @@ input[type=number] {
     e.preventDefault(); // Prevent the form from submitting traditionally
 
     const guestName = document.getElementById('name').value;
-    const guestNumber = document.getElementById('guests-number').value;
     const loadingText = document.getElementById('loadingText');
     const submitButton = e.target;
     console.log(submitButton.textContent);
@@ -164,20 +163,16 @@ input[type=number] {
       alert("Ingrese un nombre válido o_O");
       return;
     }
-    if(isNaN(guestNumber) || guestNumber < 1 || guestNumber > 5) {
-    alert("Por favor, ingrese un número válido de personas o_O");
-      return
     
-    }
 
     
     // Send the guest name to the Google Apps Script URL
-    if (guestName && guestNumber) {
+    if (guestName) {
       console.log("Disabling button");
       submitButton.disabled = true;
       submitButton.textContent = "Enviando..."
       loadingText.style.display = "block";
-      fetch(`https://script.google.com/macros/s/AKfycbx8HXuBg_-SPcFg7qOzRpOma-HjlQQvf58Wk2Ad3p0BO-cdPXcKa1UdjnesmpE_iUTS/exec?name=${encodeURIComponent(guestName)}&guests=${encodeURIComponent(guestNumber)}`) //+ encodeURIComponent(guestName))
+      fetch(`https://script.google.com/macros/s/AKfycbx8HXuBg_-SPcFg7qOzRpOma-HjlQQvf58Wk2Ad3p0BO-cdPXcKa1UdjnesmpE_iUTS/exec?name=${encodeURIComponent(guestName)}`) //+ encodeURIComponent(guestName))
         .then(response => response.text())
         .then(data => {
           console.log(data); // Log response from the Apps Script
@@ -193,7 +188,7 @@ input[type=number] {
           console.error('Error:', error);
         });
     } else {
-      alert('Por favor ingrese su nombre y el numero de personas.');
+      alert('Por favor ingrese su nombre.');
       submitButton.disabled =  false;
       loadingText.style.display = "none";
     }
