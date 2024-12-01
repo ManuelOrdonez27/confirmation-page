@@ -125,7 +125,7 @@ input[type=number] {
     <br>
 <body>
   
-  <h3>Ingrese su nombre para confirmar su asistencia (:</h3>
+  <h3>Ingresa tu nombre para confirmar tu asistencia (:</h3>
   <form id="guest-form">
     <p for="name">Nombre:</p>
     <input type="text" id="name" name="name" placeholder="Ingrese su nombre" pattern="[A-Za-zÀ-ÖØ-öø-ÿ\s]+" required>
@@ -155,7 +155,7 @@ input[type=number] {
 
     if(localStorage.getItem('formSubmitted') === 'true') {
     
-    alert("¡Ya has confirmado tu asistencia!, gracias :D");
+    alert("¡Ya confirmaste tu asistencia!, gracias :D");
       return;
     }
     const namePattern = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/;
