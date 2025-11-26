@@ -48,7 +48,7 @@
      
     }
 
-   p {
+    p {
       color: #ff99cc;
      font-size: 1.5em;
      font-weight: 600;
@@ -59,58 +59,72 @@
       margin-top: 20px;
     }
 
-   .guest-name {
+    .guest-name {
       color: #fcf5f5;
       font-size: 1.5em;
       margin-top: 10px;
-   }
+    }
 
-  .center {
+    .center {
       display: block;
       margin-left: auto;
       margin-right: auto;
       width: 50%;
-  }
+    }
+    
     .qr-code {
       margin-top: 20px;
     }
-    .button {
-    border: 2px solid #ffffff;
-    background-color: #ccccff;
-    font-family: "Afacad Flux", sans-serif;
-    font-size: 1.5em;
-    border-radius: 12px;
-    margin-top: 15px;
-    margin-bottom: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    color: #ffffff;
-    }
-input[type=number] {
-  font-size: 1.5em;
-  border: 2px solid #ffffff;
-  background-color:#ffffcc;
-  font-family: "Afacad Flux", sans-serif;
-  color: "#99ccff";
-  }
-  input[type=text] {
-  font-size: 1.5em;
-  border: 2px solid #ffffff;
-  background-color:#ffffcc;
-  font-family: "Afacad Flux", sans-serif;
-  color: "#99ccff";
-  }
-  ::placeholder {
-  color: #ffccff;
-  opacity: 1; /* Firefox */
-}
 
-::-ms-input-placeholder { /* Edge 12 -18 */
-  color: #ffccff;
-}
+    .button {
+      border: 2px solid #ffffff;
+      background-color: #ccccff;
+      font-family: "Afacad Flux", sans-serif;
+      font-size: 1.5em;
+      border-radius: 12px;
+      margin-top: 15px;
+      margin-bottom: 10px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      color: #ffffff;
+    }
+
+    input[type=number] {
+      font-size: 1.5em;
+      border: 2px solid #ffffff;
+      background-color:#ffffcc;
+      font-family: "Afacad Flux", sans-serif;
+      color: "#99ccff";
+    }
+   
+    input[type=text] {
+      font-size: 1.5em;
+      border: 2px solid #ffffff;
+      background-color:#ffffcc;
+      font-family: "Afacad Flux", sans-serif;
+      color: "#99ccff";
+    }
+    
+    ::placeholder {
+      color: #ffccff;
+      opacity: 1; /* Firefox */
+    }
+
+    ::-ms-input-placeholder { /* Edge 12 -18 */
+      color: #ffccff;
+    }
+    
     .hidden {
-   display: none;
-}
+      display: none;
+    }
+
+    .image-row {
+      display: flex;
+      justify-content: center; /* center horizontally */
+      align-items: center;     /* align vertically */
+      gap: 20px;               /* space between images */
+      margin-top: 20px;
+    }
 
   </style>
 
@@ -120,10 +134,12 @@ input[type=number] {
     <!-- Image -->
    <img src="assets\logoooooo.png" alt="Logo" width="300">
     <br>
-    <img src="assets\LUCIANA-26-11-2025.png" alt="Logo" width="300">   
-    <img src="assets\descarga (2).png" alt="Logo" width="150">
+    <div class="image-row">
+      <img src="assets/LUCIANA-26-11-2025.png" alt="Logo" width="300">
+      <img src="assets/descarga (2).png" alt="Logo" width="150">
+    </div>
     <br>
-    <img src="assets\huntrix.png" alt="Logo" width="200">
+    <img src="assets\hunntrixx.png" alt="Logo" width="200">
     <br>
 <body>
   
