@@ -3,7 +3,7 @@ function handleSubmit(e) {
   
     const guestName = document.getElementById('name').value;
     const guestNumber = document.getElementById('guests-number').value;
-    const spinner = document.getElementById('loadingSpinner');
+    const spinner = document.getElementById('loader');
     const submitButton = document.getElementById('submitButton');
   
     if (localStorage.getItem('formSubmitted') === 'true') {
