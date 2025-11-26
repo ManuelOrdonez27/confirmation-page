@@ -22,7 +22,7 @@ function handleSubmit(e) {
       return;
     }
   
-    // Disable button + show spinner
+    // Disable button + show spinner 
     submitButton.disabled = true;
     submitButton.textContent = "Enviando...";
     spinner.classList.remove("hidden");
