@@ -13,7 +13,7 @@ function handleSubmit(e) {
 
     function playSound(audioEl, opts={}){
       try{
-      if(muted) return;
+
       audioEl.currentTime = 0;
       audioEl.volume = opts.volume ?? 0.25;
       const playPromise = audioEl.play();
@@ -22,7 +22,7 @@ function handleSubmit(e) {
       }
       
       
-      form.addEventListener('submit', handleSubmit);
+      //form.addEventListener('submit', handleSubmit);
   
     /*if (localStorage.getItem('formSubmitted') === 'true') {
       alert("¡Ya confirmaste tu asistencia!, gracias 😄");
