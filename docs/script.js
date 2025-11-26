@@ -1,6 +1,7 @@
 function handleSubmit(e) {
     e.preventDefault();
-  
+
+    const form = document.getElementById('guest-form');
     const guestName = document.getElementById('name').value;
     const guestNumber = document.getElementById('guests-number').value;
     const spinner = document.getElementById('loader');
