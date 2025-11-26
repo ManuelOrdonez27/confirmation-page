@@ -118,7 +118,7 @@ input[type=number] {
 </head>
   <div>
     <!-- Image -->
-   <img src="assets/top.png" alt="Logo" width="300">
+   <img src="assets\logoooooo.png" alt="Logo" width="300">
     <br>
     <img src="assets\LUCIANA-26-11-2025.png" alt="Logo" width="300">
     <br>
@@ -148,6 +148,7 @@ input[type=number] {
     e.preventDefault(); // Prevent the form from submitting traditionally
 
     const guestName = document.getElementById('name').value;
+    const guestNumber = document.getElementById('guests-number').value;
     const loadingText = document.getElementById('loadingText');
     const submitButton = e.target;
     console.log(submitButton.textContent);
@@ -165,6 +166,11 @@ input[type=number] {
       return;
     }
     
+    if(isNaN(guestNumber) || guestNumber < 1 || guestNumber > 5) {
+      alert("Por favor, ingrese un número válido de personas o_O");
+      return;
+    
+    }
 
     
     // Send the guest name to the Google Apps Script URL
