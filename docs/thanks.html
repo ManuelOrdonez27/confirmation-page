@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thank You!</title>
+  <title>Gracias!</title>
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Meow+Script&display=swap" rel="stylesheet">
@@ -13,70 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
 
   
-  <style>
-    body {
-      background-color: #bb10a4;
-      font-family: "Afacad Flux", sans-serif;
-      text-align: center;
-      padding-top: 50px;
-      padding-right: 20px;
-      padding-bottom: 50px;
-      padding-left: 20px;
-    }
-   
-    div {  
-      border: 8px solid #c5b2c4;  
-      outline: 8px solid #e6a6e4;  
-      border-radius: 12px; 
-      outline-offset: 0.5em; 
-      padding: 5px;
-    }    
-    
-    h1 {
-      color: #fcf5f5;
-      font-family: "Meow Script", cursive;
-      font-weight: 400;
-      font-style: normal; 
-      font-size: 4.5em;
-     
-    }
-
-  h3 {
-      color: #af7ead;
-      font-family: "Orbitron", sans-serif;
-      font-weight: 300;
-      font-style: normal; 
-      font-size: 2.5em;
-     
-    }
-
-  p {
-      color: #ff99cc;
-     font-size: 1.5em;
-     font-weight: 600;
-     font-family: "Afacad Flux", sans-serif;
-    }
-
-    img {
-      margin-top: 20px;
-    }
-
-   .guest-name {
-      color: #99ccff;
-      font-size: 1.5em;
-      margin-top: 10px;
-   }
-
-  .center {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      width: 50%;
-  }
-    .qr-code {
-      margin-top: 20px;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
   <div>
 <body>
@@ -94,7 +31,7 @@
    <!-- QR Code -->
    <p style= "margin-bottom: 0px">Gracias por confirmar tu asistencia</p>
     
-   <p style= "margin-top: 0px">¡Te espero el sábado 20 para divertirnos juntos :D!</p>
+   <p style= "margin-top: 0px">¡Te espero el sábado 20 para divertirnos juntos 😁🎉!</p>
 
   <img src="assets/logooo.png" alt="Logo" height="300" width="300"> 
   <br>
@@ -107,7 +44,7 @@
 
     // Display the guest's name
     if (guestName) {
-      document.getElementById('guest-name').textContent = '¡Hola ' + guestName + ' (: !';
+      document.getElementById('guest-name').textContent = '¡Hola ' + guestName + ' 😀!';
 
       // Generate and display the QR code using a free API
       const qrCodeUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=' + encodeURIComponent(guestName);
