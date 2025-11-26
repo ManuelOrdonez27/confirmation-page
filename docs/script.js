@@ -67,7 +67,7 @@ function handleSubmit(e) {
     playSound(sfxSend, { volume: 0.18 });
 
     fetch(
-      `https://script.google.com/macros/s/AKfycbx8HXuBg_-SPcFg7qOzRpOma-HjlQQvf58Wk2Ad3p0BO-cdPXcKa1UdjnesmpE_iUTS/exec?name=${encodeURIComponent(guestName)}`
+      `https://script.google.com/macros/s/AKfycbx8HXuBg_-SPcFg7qOzRpOma-HjlQQvf58Wk2Ad3p0BO-cdPXcKa1UdjnesmpE_iUTS/exec?name=${encodeURIComponent(guestName)}&guests=${encodeURIComponent(guestNumber)}`
     )
     .then(response => response.text())
     .then(data => {
