@@ -24,7 +24,7 @@ html,body{height:100%;margin:0;padding:0;font-family: 'Afacad Flux', sans-serif;
 .brand{width:160px;display:block;margin:10px auto}
 
 
-.title{color:var(--accent);font-family:'Orbitron',cursive;font-size:1.6rem;margin:12px 0;letter-spacing:0.6px}
+.title{color:var(--accent);font-family:'Orbitron',sans-serif;font-size:1.6rem;margin:12px 0;letter-spacing:0.6px}
 .emoji{display:inline-block;transform:translateY(2px)}
 
 
