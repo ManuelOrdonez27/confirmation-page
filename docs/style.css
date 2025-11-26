@@ -24,7 +24,7 @@ html,body{height:100%;margin:0;padding:0;font-family: 'Afacad Flux', sans-serif;
 .brand{width:160px;display:block;margin:10px auto}
 
 
-.title{color:var(--accent);font-family:'Orbitron',sans-serif;font-size:1.6rem;margin:12px 0;letter-spacing:0.6px}
+.title{color:var(--accent);font-family:'Orbitron',sans-serif;text-align:center;font-size:1.6rem;margin:12px 0;letter-spacing:0.6px}
 .emoji{display:inline-block;transform:translateY(2px)}
 
 
@@ -78,7 +78,7 @@ content:'';position:absolute;pointer-events:none;left:0;right:0;top:0;bottom:0;z
 @media (max-width:600px){
 .hero{width:55%}
 .icon{width:30%}
-.logo{width:120px}
+.logo{width:250}
 .title{font-size:1.2rem}
 }
 
