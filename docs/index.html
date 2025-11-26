@@ -1,71 +1,77 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Confirmación de Asistencia</title>
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Meow+Script&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Confirmación - Luciana</title>
+<link rel="stylesheet" href="styles.css" />
 </head>
+<body class="page">
+<div class="container main-box neon-glow">
+<header class="header">
+<img src="assets/logoooooo.png" alt="Logo" class="logo" />
 
-<body>
-  <div class="main-box fade-in">
 
-    <img src="assets/logoooooo.png" class="logo-top">
+<div class="image-row">
+<img src="assets/LUCIANA-26-11-2025.png" alt="Luciana" class="hero" />
+<img src="assets/descarga (2).png" alt="Icon" class="icon" />
+</div>
 
-    <div class="image-row">
-      <img src="assets/LUCIANA-26-11-2025.png" width="280">
-      <img src="assets/descarga (2).png" width="100">
-    </div>
 
-    <img src="assets/hunntrixx.png" width="200" class="fade-in">
+<img src="assets/hunntrixx.png" alt="Brand" class="brand" />
+</header>
 
-    <h3>✨ Ingresa tu nombre para confirmar tu asistencia 🎉🎈</h3>
 
-    <form id="guest-form">
+<main>
+<h3 class="title">✨ Ingresa tu nombre para confirmar tu asistencia 🎉 <span class="emoji">🎈</span></h3>
 
-      <p>Nombre:</p>
-      <input 
-        type="text" 
-        id="name" 
-        name="name" 
-        placeholder="Escribe tu nombre ✍️"
-        pattern="[A-Za-zÀ-ÖØ-öø-ÿ\s]+"
-        required
-      >
 
-      <p>Número de personas:</p>
-      <input 
-        type="number" 
-        id="guests-number" 
-        name="guests-number" 
-        placeholder="¿Cuántos vienen? 👥" 
-        min="1"
-        required
-      >
+<form id="guest-form" class="form" aria-label="Formulario de confirmación">
+<label for="name">Nombre:</label>
+<input type="text" id="name" name="name" placeholder="Ingrese su nombre ✍" pattern="[A-Za-zÀ-ÖØ-öø-ÿ\s]+" required />
 
-      <button id="submitButton" class="button" type="submit">
-        Enviar 🚀
-      </button>
 
-      <!-- Loading Spinner -->
-      <div id="loadingSpinner" class="spinner hidden"></div>
-    </form>
+<label for="guests-number">Número de personas que asistirán:</label>
+<input type="number" id="guests-number" name="guests-number" placeholder="Ingrese núm. de personas 👥" min="1" max="5" required />
 
-    <img src="assets\footer-removebg-preview.png" width="150">
-    <footer class="footer">
-      <p class="credits">Sitio desarrollado por Manuel Ordoñez ✨</p>
-      </footer>
-      </div>
 
-  </div>
+<div class="controls">
+<button id="submitButton" class="button" type="submit">Enviar</button>
+</div>
 
-  <script src="script.js"></script>
+
+<!-- Animated loader (hidden initially) -->
+<div id="loader" class="loader hidden" role="status" aria-live="polite">
+<div class="pixel-spinner">
+<span></span><span></span><span></span>
+</div>
+<p class="sr-only">Enviando...</p>
+</div>
+
+
+<p id="message" class="message" aria-live="polite"></p>
+</form>
+
+
+<div class="sound-controls">
+<button id="muteBtn" class="tiny">🔊</button>
+</div>
+</main>
+
+<img src="assets\footer-removebg-preview.png" alt="Icon" class="icon" />
+
+<footer class="footer">
+<p class="credits">Sitio desarrollado por Manuel Ordoñez ✨</p>
+</footer>
+</div>
+
+
+<!-- Audio elements (drop your sound files in assets/) -->
+<audio id="sfx-send" src="assets/sfx_send.mp3" preload="auto"></audio>
+<audio id="sfx-success" src="assets/sfx_success.mp3" preload="auto"></audio>
+<audio id="sfx-hover" src="assets/sfx_hover.mp3" preload="auto"></audio>
+
+
+<script src="script.js"></script>
 </body>
 </html>
