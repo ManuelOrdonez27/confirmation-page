@@ -37,12 +37,12 @@ input[type=text], input[type=number] {
   border-radius: 10px;
   border: 2px solid rgba(255,255,255,0.25);
   background: rgba(255, 255, 255, 0.1);
-  color: #fff;                /* White text */
+  color: #b882b3;                /* White text */
   backdrop-filter: blur(4px); /* Glass effect */
 }
 
 input::placeholder {
-  color: rgba(255,255,255,0.6);
+  color: rgba(95, 233, 210, 0.6);
 }
 
 .controls{display:flex;justify-content:center}
