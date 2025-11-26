@@ -30,8 +30,20 @@ html,body{height:100%;margin:0;padding:0;font-family: 'Afacad Flux', sans-serif;
 
 .form{display:grid;gap:12px;align-items:center;max-width:640px;margin:0 auto}
 label{color:#ffd6f3;font-weight:600;text-align:left}
-input[type=text],input[type=number]{font-size:1.05rem;padding:12px;border-radius:10px;border:2px solid rgba(255,255,255,0.18);background:linear-gradient(180deg,#fff7 0%, #fff0 100%);color:#111;}
 
+input[type=text], input[type=number] {
+  font-size: 1.05rem;
+  padding: 12px;
+  border-radius: 10px;
+  border: 2px solid rgba(255,255,255,0.25);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;                /* White text */
+  backdrop-filter: blur(4px); /* Glass effect */
+}
+
+input::placeholder {
+  color: rgba(255,255,255,0.6);
+}
 
 .controls{display:flex;justify-content:center}
 .button{padding:12px 20px;border-radius:12px;border:2px solid rgba(255,255,255,0.15);background:linear-gradient(180deg,var(--accent),var(--accent-2));color:#14031a;font-weight:700;font-size:1.05rem;cursor:pointer;transform:translateZ(0);transition:transform .18s ease, box-shadow .18s ease}
