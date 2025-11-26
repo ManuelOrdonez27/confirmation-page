@@ -5,11 +5,28 @@ function handleSubmit(e) {
     const guestNumber = document.getElementById('guests-number').value;
     const spinner = document.getElementById('loader');
     const submitButton = document.getElementById('submitButton');
+
+    const sfxSend = document.getElementById('sfx-send');
+    const sfxSuccess = document.getElementById('sfx-success');
+    const sfxHover = document.getElementById('sfx-hover');
+
+    function playSound(audioEl, opts={}){
+      try{
+      if(muted) return;
+      audioEl.currentTime = 0;
+      audioEl.volume = opts.volume ?? 0.25;
+      const playPromise = audioEl.play();
+      if(playPromise !== undefined) playPromise.catch(()=>{});
+      }catch(e){console.warn('Playback failed', e)}
+      }
+      
+      
+      form.addEventListener('submit', handleSubmit);
   
-    if (localStorage.getItem('formSubmitted') === 'true') {
+    /*if (localStorage.getItem('formSubmitted') === 'true') {
       alert("¡Ya confirmaste tu asistencia!, gracias 😄");
       return;
-    }
+    }*/
   
     const namePattern = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/;
     if (!namePattern.test(guestName)) {
@@ -26,6 +43,7 @@ function handleSubmit(e) {
     submitButton.disabled = true;
     submitButton.textContent = "Enviando...";
     spinner.classList.remove("hidden");
+    playSound(sfxSend, {volume:0.18});
   
     fetch(
       `https://script.google.com/macros/s/AKfycbx8HXuBg_-SPcFg7qOzRpOma-HjlQQvf58Wk2Ad3p0BO-cdPXcKa1UdjnesmpE_iUTS/exec?name=${encodeURIComponent(guestName)}`
