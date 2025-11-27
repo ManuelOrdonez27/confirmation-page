@@ -49,6 +49,11 @@ function handleSubmit(e) {
     const spinner = document.getElementById('loader');
     const submitButton = document.getElementById('submitButton');
 
+    if(localStorage.getItem('formSubmitted') === 'true') {
+        alert("¡Ya confirmaste tu asistencia!, gracias 😁");
+        return;
+    }
+
     const namePattern = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/;
     if (!namePattern.test(guestName)) {
         alert("Ingrese un nombre válido 😅");
@@ -71,6 +76,7 @@ function handleSubmit(e) {
     )
     .then(response => response.text())
     .then(data => {
+        console.log(data);
         localStorage.setItem('formSubmitted', 'true');
         window.location.href = 'thanks.html?name=' + encodeURIComponent(guestName);
     })
