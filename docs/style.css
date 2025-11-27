@@ -34,9 +34,8 @@ label {
   font-weight: 600;
   text-align: left;
   text-shadow: 
-    0 0 4px var(--accent),
-    0 0 8px var(--accent-2),
-    0 0 12px var(--accent);
+    0 0 2px var(--accent),
+    0 0 4px var(--accent-2);
 }
 
 input[type=text], input[type=number] {
@@ -128,9 +127,8 @@ label{grid-column:span 2}
 .neon-text {
   color: var(--accent);
   text-shadow:
-    0 0 6px var(--accent),
-    0 0 12px var(--accent-2),
-    0 0 18px var(--accent);
-}
+    0 0 2px var(--accent),
+    0 0 4px var(--accent-2);
+  }
 /* Accessibility helper */
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
